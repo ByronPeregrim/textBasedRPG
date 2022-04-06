@@ -53,6 +53,7 @@ def playerCommands():
     commandExecuted = False;
     while commandExecuted == False:
         command = input("Enter Command: ").lower();
+        print("");
         if command == "health":
             getHealth();
             break;
@@ -73,7 +74,7 @@ def getInventory():
     print("--Item---------------|--Description---------------------------------------|--Value----");
     for i in player.inventory:
         print(f'{i.name:20} | {i.itemDescription:50} | {i.value:6d}gp');
-    print("--------------------------------------------------------------------------------------");
+    print("---------------------|----------------------------------------------------|-----------");
     print("");
 
 # Displays number of gold pieces in player wallet
@@ -97,12 +98,9 @@ print("");
 text("You wake up on the floor of a damp cave...")
 text("A small fire crackles a few feet away...") 
 text("Next to the fire sits a middle-aged man. A walking stick rests upon his knees....");
-time.sleep(1.5);
 text("He notices you are awake and gives you a small, knowing smile...")
-time.sleep(1.5);
 text("He begins to speak...")
 text("'You've been sleeping for quite some time...'");
-time.sleep(1.5);
 text("'You probably don't remember much, do you?'");
 
 response1 = (input("Respond: [Yes/No] ")).lower();
@@ -124,57 +122,49 @@ playerName = input("Enter Name: ");
 player = Player(playerName, 1, 75, [], 0);
 
 print("");
-time.sleep(1.5);
+time.sleep(1);
 
 text("'Good... Hello, " + playerName + "'");
-time.sleep(1.5);
 slowText(".....");
+
 text("'I can see that you're wondering where you are and how you got here...'")
-time.sleep(1.5);
 text("'Hmm, you really don't remember anything, do you?'")
-time.sleep(1.5);
 text("'I hate to be the one to tell you this, but...'");
-time.sleep(1.5);
 text("'Your village was attacked last night...'");
-time.sleep(1.5);
 text("'I found you this morning, unconcious, at the bottom of a hill just outside the village.'");
-time.sleep(1.5);
-text("'There was a big gash to the back of your head. I was able to stitch it up, but you're going to want to keep an eye on that.'");
-time.sleep(1.5);
+text("'There was a big gash to the back of your head. I tried my best to stitch it up.'");
 text("You bring your fingers to the back of your head and quickly find the wound. You wince in pain as you graze the sensitive tissue.");
-time.sleep(1.5);
-print("");
 
 answer = False
 while (answer == False):
     response = input("Respond: [Who are you?/Remain silent] ").lower()
+    print("");
     if response == "who are you?" or response == "who are you":
-        time.sleep(1.5);
+        time.sleep(1);
         text("'I'm nobody. Just a traveling merchant who happened to be in the right place at the right time.'")
         break;
     elif response == "remain silent":
         slowText(".....");
-        time.sleep(1.5);
+        time.sleep(1);
         break;
     else:
         answer = False;
 
-print("");
 text("'Anyways, how do you feel now?'");
 text("To check health status type [health].");
 playerCommands();
 
-text("'Hmm, seems you still have a bit of a fever. Here. Take this potion. That should get you feeling like new again...'");
-time.sleep(1);
-text("The man's arm protrudes from his cloak. It extends. In his hand is a small flask with a viscous red liquid inside. ");
-time.sleep(1);
+text("'Hmm, seems you still have a bit of a fever. Here. Drink this. That should get you feeling like new again...'");
+text("The man's arm protrudes from his cloak. It extends. In his hand is a small flask containing a viscous red liquid. ");
 text("You reach out and take the potion.");
+
 player.inventory.append(potion);
-time.sleep(1);
 
 text("To check your inventory type [open inventory]. ");
 playerCommands();
+time.sleep(1);
 
 text("To use the potion type [use potion]. ");
 playerCommands();
+time.sleep(1);
 
